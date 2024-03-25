@@ -1,0 +1,22 @@
+<li class="product flex py-2 items-center pl-4 border-y">
+  <img class="h-20 mr-10" [src]="getImageUrl(product)" [alt]="product.name" />
+  <div class="flex flex-col border-r w-full">
+    <p class="font-bold">{{ product.name }}</p>
+    <p class="mb-2">{{ product.description }}</p>
+    <p class="text-gray-500">Part type: {{ product.category }}</p>
+  </div>
+  <div class="px-10 py-10 flex gap-2 justify-center flex-col items-center">
+    <p [ngClass]="{ 'line-through text-red-500': product.discount > 0 }">
+      {{ product.price | currency : "USD" }}
+    </p>
+    <p *ngIf="product.discount > 0" class="text-fuchsia-500">
+      {{ product.price * (1 - product.discount) | currency : "USD" }}
+    </p>
+    <button
+      (click)="buyButtonClicked()"
+      class="bg-fuchsia-500 px-4 py-2 rounded text-white"
+    >
+      Buy
+    </button>
+  </div>
+</li>

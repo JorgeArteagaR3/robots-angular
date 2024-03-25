@@ -1,0 +1,22 @@
+<div class="flex flex-col w-full lg:w-11/12 lg:mx-auto">
+  <div>
+    <ul class="flex w-full items-center justify-center gap-2 mb-4">
+      <li *ngFor="let category of categories">
+        <button
+          class="bg-cyan-600 p-2 text-white rounded-sm"
+          (click)="filter = category"
+        >
+          {{ category }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  <ul class="flex flex-col">
+    <ng-container *ngFor="let product of getFilteredByCategory()">
+      <app-product-details
+        [product]="product"
+        (buy)="addToCart(product)"
+      ></app-product-details>
+    </ng-container>
+  </ul>
+</div>
