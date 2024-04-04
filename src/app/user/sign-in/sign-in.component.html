@@ -1,0 +1,57 @@
+<div class="flex items-center justify-center">
+  <form
+    #signInForm="ngForm"
+    class="flex flex-col max-h-auto border p-10 items-center justify-center gap-4"
+    (ngSubmit)="signIn()"
+  >
+    <img
+      src="/assets/images/logo.png"
+      alt="logo"
+      class="bg-contain h-[120px] w-max"
+    />
+    <p>Sign In</p>
+    <small>to acquire awesome bots</small>
+    <input
+      type="text"
+      placeholder="Email Address"
+      name="email"
+      class="border p-2"
+      [(ngModel)]="credentials.email"
+      #email="ngModel"
+      email
+      required
+    />
+    <em
+      *ngIf="email?.errors?.['required'] && email.touched"
+      class="self-start text-red-500"
+      >Email is required</em
+    >
+    <em
+      *ngIf="email?.errors?.['email'] && email.touched"
+      class="self-start text-red-500"
+      >Must be a valid email format</em
+    >
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      class="border p-2"
+      [(ngModel)]="credentials.password"
+      #password="ngModel"
+      required
+    />
+    <em
+      *ngIf="password.invalid && password.touched"
+      class="self-start text-red-500"
+      >Password is required</em
+    >
+    <button
+      [disabled]="signInForm.form.invalid"
+      type="submit"
+      class="bg-fuchsia-500 text-white px-4 py-2 rounded-lg disabled:bg-gray-600 disabled:text-gray-400"
+    >
+      Sign In
+    </button>
+    <div *ngIf="signInError" class="text-red-400">Invalid Credentials</div>
+  </form>
+</div>

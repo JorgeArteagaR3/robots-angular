@@ -2,12 +2,14 @@
   <div>
     <ul class="flex w-full items-center justify-center gap-2 mb-4">
       <li *ngFor="let category of categories">
-        <button
+        <a
           class="bg-cyan-600 p-2 text-white rounded-sm"
-          (click)="filter = category"
+          routerLink="/catalog"
+          [queryParams]="{ filter: category }"
+          routerLinkActive="bg-fuchsia-500"
         >
           {{ category }}
-        </button>
+        </a>
       </li>
     </ul>
   </div>

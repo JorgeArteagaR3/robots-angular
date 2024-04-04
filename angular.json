@@ -56,7 +56,8 @@
               "browserTarget": "angular-robot-shop:build:production"
             },
             "development": {
-              "browserTarget": "angular-robot-shop:build:development"
+              "browserTarget": "angular-robot-shop:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

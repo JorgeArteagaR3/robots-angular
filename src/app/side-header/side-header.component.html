@@ -4,19 +4,41 @@
       <img src="assets/images/logo.png" alt="logo" class="mr-4" />
       <ul class="flex gap-4">
         <li>
-          <a href="">Home</a>
+          <a
+            routerLink="/home"
+            routerLinkActive="border-b border-fuchsia-500 border-b-2 pb-1"
+            >Home</a
+          >
         </li>
         <li>
-          <a href="">Catalog</a>
+          <a
+            routerLink="/catalog"
+            routerLinkActive="border-b border-fuchsia-500 border-b-2 pb-1"
+            >Catalog</a
+          >
         </li>
         <li>
-          <a href="">Cart</a>
+          <a
+            routerLink="/cart"
+            routerLinkActive="border-b border-fuchsia-500 border-b-2 pb-1"
+            >Cart</a
+          >
         </li>
       </ul>
     </div>
-    <div>
-      <a href="/" class="mr-4">Sign In</a>
+    <div *ngIf="!user">
+      <a
+        routerLink="/sign-in"
+        routerLinkActive="border-b border-fuchsia-500 border-b-2 pb-1"
+        class="mr-4"
+        >Sign In</a
+      >
       <a href="/">Register</a>
+    </div>
+    <div *ngIf="user">
+      <button (click)="signOut()" class="text-red-400 font-bold underline">
+        Sign Out
+      </button>
     </div>
   </nav>
 </header>
