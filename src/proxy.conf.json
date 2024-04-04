@@ -1,6 +1,7 @@
 {
   "/api": {
-    "target": "http://localhost:8000",
-    "secure": false
+    "target": "https://robots-angular-backend.onrender.com",
+    "secure": true,
+    "changeOrigin": true
   }
 }

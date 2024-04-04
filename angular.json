@@ -53,7 +53,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-robot-shop:build:production"
+              "browserTarget": "angular-robot-shop:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
               "browserTarget": "angular-robot-shop:build:development",
