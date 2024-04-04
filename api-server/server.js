@@ -4,6 +4,8 @@ import bodyParser from "body-parser";
 const app = express();
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 8000;
+
 let cart = [];
 
 const users = [
@@ -20,6 +22,14 @@ const users = [
     password: "secret-pass2",
   },
 ];
+
+app.get("/", (req, res) => {
+  res.send([
+    {
+      message: "Server is On, port:" + PORT,
+    },
+  ]);
+});
 
 app.get("/api/products", (req, res) => {
   const products = [
@@ -226,6 +236,6 @@ app.post("/api/sign-in", async (req, res, next) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("Server is on port: " + process.env.PORT);
+app.listen(PORT, () => {
+  console.log("Server is on port: " + PORT);
 });
